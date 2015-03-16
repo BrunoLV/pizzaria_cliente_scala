@@ -1,0 +1,24 @@
+@(mensagem: String, clienteForm: Form[controllers.ClienteController.ClienteView])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Cadastro de Clientes") {
+
+    <h2>Cadastro de Clientes</h2>
+
+    @form(routes.ClienteController.salvar, 'class -> "navbar-form navbar-left") {
+
+        <div class="form-group">
+        @inputText(clienteForm("id"), 'id -> "idClienteHidden", 'hidden -> "hidden", '_label -> null, '_showConstraints -> false)
+        @inputText(clienteForm("nome"), 'id -> "nomeClienteText", 'class -> "form-control", 'size -> 100, '_label -> "Nome:", '_showConstraints -> false)
+        @inputText(clienteForm("idade"), 'id -> "idadeClienteText", 'class -> "form-control", 'size -> 20, '_label -> "Idade", '_showConstraints -> false)
+        </div>
+
+        <br/>
+        <input class="btn btn-xs btn-default" type="submit" value="Enviar"/>
+
+    }
+
+    <h4>@mensagem</h4>
+}

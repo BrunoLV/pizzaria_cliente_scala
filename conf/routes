@@ -1,0 +1,16 @@
+# Routes~ç
+# This file defines all application routes (Higher priority routes first)
+# Home page
+GET         /                                         controllers.ClienteController.listar
+GET         /criar                                    controllers.ClienteController.criar
+POST        /criar                                    controllers.ClienteController.salvar
+GET         /editar/:id                               controllers.ClienteController.editar(id: Int)
+GET         /deletar/:id                              controllers.ClienteController.deletar(id: Int)
+GET         /listarEnderecosCliente/:idCliente        controllers.EnderecoController.listarEnderecosCliente(idCliente: Int)
+GET         /editarEndereco/:id                       controllers.EnderecoController.editar(id: Int)
+GET         /deletarEndereco/:id                      controllers.EnderecoController.deletar(id: Int)
+GET         /criarEndereco                            controllers.EnderecoController.criar
+POST        /criarEndereco                            controllers.EnderecoController.salvar
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                             controllers.Assets.at(path="/public", file)

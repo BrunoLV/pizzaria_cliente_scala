@@ -1,0 +1,36 @@
+@(mensagem: String, lista: List[controllers.ClienteController.ClienteView])
+
+@main("Listagem de Clientes") {
+
+    <h2>Clientes Cadastrados</h2>
+
+    <h4>@mensagem</h4>
+
+    @if(!lista.isEmpty) {
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>IDADE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @for(cliente <- lista) {
+                <tr>
+                    <td>@cliente.id</td>
+                    <td>@cliente.nome</td>
+                    <td>@cliente.idade</td>
+                    <td><a href="/editar/@cliente.id" class="btn btn-xs btn-link">Editar</a>
+                    <a href="/deletar/@cliente.id" class="btn btn-xs btn-link">Deletar</a>
+                    <a href="/listarEnderecosCliente/@cliente.id" class="btn btn-xs btn-link">Enderecos</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    } else {
+        <h4>Não há registros cadastrados.</h4>
+    }
+    <a href="/criar" class="btn btn-xs btn-link">Cadastrar Cliente</a>
+}

@@ -1,0 +1,20 @@
+@(mensagem: String, enderecoForm: Form[controllers.EnderecoController.EnderecoView])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Cadastro de Enderecos") {
+
+    <h2>Cadastro de Enderecos</h2>
+
+    @form(routes.EnderecoController.salvar, 'class -> "navbar-form navbar-left") {
+        <div class="form-group">
+        @inputText(enderecoForm("id"), 'id -> "idHidden", 'hidden -> "hidden", '_label -> null, '_showConstraints -> false)
+        @inputText(enderecoForm("descricao"), 'id -> "descricaoText", 'size -> 100, 'class -> "form-control", '_label -> "Descricao Completa:", '_showConstraints -> false)
+        </div>
+        <br/>
+        <input type="submit" value="Enviar" class="btn btn-xs btn-default" />
+    }
+
+    <h4>@mensagem</h4>
+}
